@@ -42,8 +42,8 @@ class WordleSolver
         @wordlist_all.reject! { |word| word.include?(letter) }
         @wordlist_hidden.reject! { |word| word.include?(letter) }
       when 'g' # green
-        @wordlist_all.select! { |word| word[index] != letter }
-        @wordlist_hidden.select! { |word| word[index] != letter }
+        @wordlist_all.reject! { |word| word[index] != letter }
+        @wordlist_hidden.reject! { |word| word[index] != letter }
       when 'y' # yellow
         @wordlist_all.reject! { |word| !word.include?(letter) || word[index] == letter }
         @wordlist_hidden.reject! { |word| !word.include?(letter) || word[index] == letter }
